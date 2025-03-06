@@ -10,7 +10,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // ✅ Carrega o arquivo Swagger corretamente no Vercel
-const swaggerDocument = YAML.load(path.join(__dirname, '../swagger.yaml'));
+const swaggerDocument = YAML.load(path.join(__dirname, 'swagger.yaml'));
 
 // Rota para acessar a documentação
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
