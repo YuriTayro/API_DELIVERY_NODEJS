@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const md5 = require('md5'); // Adicionar a biblioteca MD5 para o hash
 
 const secretKey = "chave_secreta_super_segura";
 
@@ -10,9 +11,10 @@ function generateToken(req, res) {
     const inputPassword = password || '';
 
     const validLogin = 'admin@delivery.com';
-    const validPassword = 'admin123'; // Senha simples sem hash
+    const validPasswordHash = '0192023a7bbd73250516f069df18b500'; // Senha MD5 exemplo
 
-    if (inputLogin === validLogin && inputPassword === validPassword) {
+    // Verificação do hash da senha
+    if (inputLogin === validLogin && md5(inputPassword) === validPasswordHash) {
         const token = createToken(inputLogin);
         return res.json({ token });
     }
