@@ -6,7 +6,7 @@
       "use": "@vercel/node"
     },
     {
-      "src": "swagger.yaml",
+      "src": "api/swagger.yaml",
       "use": "@vercel/static"
     }
   ],
