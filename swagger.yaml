@@ -4,6 +4,9 @@ info:
   description: API para autenticação e gerenciamento de endereços de entrega
   version: 1.0.0
 servers:
+  - url: https://api-delivery-nodejs.vercel.app
+    description: Servidor em Produção
+
   - url: http://localhost:3000
     description: Servidor Local
 
