@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const secretKey = "chave_secreta_super_segura";
 
 // Dados fictícios para os endereços
-let enderecos = [
+const enderecos = [
     { id: 1, rua: "Rua das Flores", numero: "123", bairro: "Centro", cidade: "São Paulo", estado: "SP", cep: "01001-000" },
     { id: 2, rua: "Avenida Paulista", numero: "1000", bairro: "Bela Vista", cidade: "São Paulo", estado: "SP", cep: "01311-000" }
 ];
@@ -36,7 +36,7 @@ function getAddresses(req, res) {
 function addAddress(req, res) {
     const { rua, numero, bairro, cidade, estado, cep } = req.body;
     const novoEndereco = {
-        id: enderecos.length + 1, // Melhoria: usar uma estratégia mais robusta para gerar IDs únicos
+        id: enderecos.length + 1,
         rua,
         numero,
         bairro,
@@ -45,7 +45,7 @@ function addAddress(req, res) {
         cep
     };
     enderecos.push(novoEndereco);
-    res.status(201).json({ message: "Endereço criado com sucesso", endereco: novoEndereco });
+    res.json({ message: "Endereço criado com sucesso", endereco: novoEndereco });
 }
 
 module.exports = { checkToken, getAddresses, addAddress };
