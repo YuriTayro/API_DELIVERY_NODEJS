@@ -4,6 +4,10 @@
     {
       "src": "api/index.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "swagger.yaml",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -12,9 +16,8 @@
       "dest": "/api/index.js"
     },
     {
-      "src": "/api-docs",
-      "dest": "/api/index.js"
+      "src": "/swagger.yaml",
+      "dest": "/swagger.yaml"
     }
-  ],
-  "includeFiles": ["swagger.yaml"]
+  ]
 }
