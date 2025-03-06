@@ -8,13 +8,13 @@ const { checkToken, getAddresses, addAddress } = require('./delivery');
 const app = express();
 app.use(bodyParser.json());
 
-// Carrega o arquivo swagger.yaml
+// Carrega o arquivo Swagger.yaml
 const swaggerDocument = YAML.load('./swagger.yaml');
 
-// Rota para a documentação Swagger
+// Rota para acessar a documentação
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-// Roteamento
+// Roteamento da API
 app.post('/api/auth/token', generateToken);
 app.get('/api/delivery/addresses', checkToken, getAddresses);
 app.post('/api/delivery/addresses', checkToken, addAddress);
